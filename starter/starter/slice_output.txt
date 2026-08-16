@@ -1,0 +1,114 @@
+slice metrics using test data for the feature 'education':
+
+the metrics for the slice education_ 10th are:
+total rows: 183 
+not null rows: 41
+precision: 0.0
+recall: 0.0
+fbeta: 0.0
+
+the metrics for the slice education_ 11th are:
+total rows: 225 
+not null rows: 51
+precision: 0.0
+recall: 0.0
+fbeta: 0.0
+
+the metrics for the slice education_ 12th are:
+total rows: 98 
+not null rows: 19
+precision: 1.0
+recall: 0.5
+fbeta: 0.6666666666666666
+
+the metrics for the slice education_ 1st-4th are:
+total rows: 23 
+not null rows: 4
+precision: 1.0
+recall: 0.0
+fbeta: 0.0
+
+the metrics for the slice education_ 5th-6th are:
+total rows: 62 
+not null rows: 14
+precision: 0.0
+recall: 0.0
+fbeta: 0.0
+
+the metrics for the slice education_ 7th-8th are:
+total rows: 141 
+not null rows: 32
+precision: 1.0
+recall: 0.08333333333333333
+fbeta: 0.15384615384615385
+
+the metrics for the slice education_ 9th are:
+total rows: 115 
+not null rows: 26
+precision: 1.0
+recall: 0.0
+fbeta: 0.0
+
+the metrics for the slice education_ Assoc-acdm are:
+total rows: 198 
+not null rows: 51
+precision: 0.2727272727272727
+recall: 0.23076923076923078
+fbeta: 0.25
+
+the metrics for the slice education_ Assoc-voc are:
+total rows: 273 
+not null rows: 54
+precision: 0.14285714285714285
+recall: 0.08333333333333333
+fbeta: 0.10526315789473684
+
+the metrics for the slice education_ Bachelors are:
+total rows: 1053 
+not null rows: 193
+precision: 0.1375
+recall: 0.2894736842105263
+fbeta: 0.1864406779661017
+
+the metrics for the slice education_ Doctorate are:
+total rows: 77 
+not null rows: 15
+precision: 0.38461538461538464
+recall: 1.0
+fbeta: 0.5555555555555556
+
+the metrics for the slice education_ HS-grad are:
+total rows: 2085 
+not null rows: 390
+precision: 0.1702127659574468
+recall: 0.08791208791208792
+fbeta: 0.11594202898550725
+
+the metrics for the slice education_ Masters are:
+total rows: 369 
+not null rows: 72
+precision: 0.2571428571428571
+recall: 0.391304347826087
+fbeta: 0.3103448275862069
+
+the metrics for the slice education_ Preschool are:
+total rows: 10 
+not null rows: 2
+precision: 1.0
+recall: 1.0
+fbeta: 1.0
+
+the metrics for the slice education_ Prof-school are:
+total rows: 116 
+not null rows: 22
+precision: 0.3
+recall: 1.0
+fbeta: 0.46153846153846156
+
+the metrics for the slice education_ Some-college are:
+total rows: 1485 
+not null rows: 296
+precision: 0.3023255813953488
+recall: 0.17333333333333334
+fbeta: 0.22033898305084745
+

@@ -31,7 +31,7 @@ X_train, y_train, encoder, lb = process_data(
 )
 
 # Proces the test data with the process_data function.
-X_test, y_test, encoder, lb = process_data(
+X_test, y_test, encoder , _ = process_data(
     test, categorical_features=cat_features, label="salary", training=False,encoder=encoder
 )
 # Train and save a model.
@@ -39,3 +39,15 @@ model = train_model(X_train, y_train)
 joblib.dump(model, current_script_dir.parent / "model" / "random_forest_model.joblib")
 joblib.dump(encoder, current_script_dir.parent / "model" / "encoder.joblib")
 
+slice_eval(
+        data_cols = data.columns,
+        cat_features = cat_features,
+        label = 'salary',
+        x = X_test,
+        y = y_test,
+        slice_feature = 'education',
+        model = model,
+        encoder = encoder,
+        lb = lb,
+        output_file_name = "slice_output.txt"
+    )
