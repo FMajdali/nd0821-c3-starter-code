@@ -1,114 +1,114 @@
 slice metrics using test data for the feature 'education':
 
 the metrics for the slice education_ 10th are:
-total rows: 183 
-not null rows: 41
-precision: 0.0
+total rows: 204 
+not null rows: 33
+precision: 1.0
 recall: 0.0
 fbeta: 0.0
 
 the metrics for the slice education_ 11th are:
-total rows: 225 
-not null rows: 51
+total rows: 244 
+not null rows: 48
 precision: 0.0
 recall: 0.0
 fbeta: 0.0
 
 the metrics for the slice education_ 12th are:
-total rows: 98 
-not null rows: 19
-precision: 1.0
-recall: 0.5
-fbeta: 0.6666666666666666
+total rows: 79 
+not null rows: 17
+precision: 0.0
+recall: 0.0
+fbeta: 0.0
 
 the metrics for the slice education_ 1st-4th are:
-total rows: 23 
-not null rows: 4
+total rows: 28 
+not null rows: 2
 precision: 1.0
 recall: 0.0
 fbeta: 0.0
 
 the metrics for the slice education_ 5th-6th are:
-total rows: 62 
-not null rows: 14
-precision: 0.0
+total rows: 51 
+not null rows: 12
+precision: 1.0
 recall: 0.0
 fbeta: 0.0
 
 the metrics for the slice education_ 7th-8th are:
-total rows: 141 
-not null rows: 32
+total rows: 120 
+not null rows: 16
 precision: 1.0
-recall: 0.08333333333333333
-fbeta: 0.15384615384615385
+recall: 0.0
+fbeta: 0.0
 
 the metrics for the slice education_ 9th are:
-total rows: 115 
-not null rows: 26
+total rows: 106 
+not null rows: 18
 precision: 1.0
 recall: 0.0
 fbeta: 0.0
 
 the metrics for the slice education_ Assoc-acdm are:
-total rows: 198 
-not null rows: 51
-precision: 0.2727272727272727
-recall: 0.23076923076923078
-fbeta: 0.25
+total rows: 191 
+not null rows: 40
+precision: 0.08333333333333333
+recall: 0.125
+fbeta: 0.1
 
 the metrics for the slice education_ Assoc-voc are:
-total rows: 273 
-not null rows: 54
-precision: 0.14285714285714285
-recall: 0.08333333333333333
-fbeta: 0.10526315789473684
+total rows: 274 
+not null rows: 55
+precision: 0.16666666666666666
+recall: 0.21428571428571427
+fbeta: 0.1875
 
 the metrics for the slice education_ Bachelors are:
-total rows: 1053 
-not null rows: 193
-precision: 0.1375
-recall: 0.2894736842105263
-fbeta: 0.1864406779661017
+total rows: 1096 
+not null rows: 220
+precision: 0.19101123595505617
+recall: 0.3269230769230769
+fbeta: 0.24113475177304963
 
 the metrics for the slice education_ Doctorate are:
-total rows: 77 
-not null rows: 15
-precision: 0.38461538461538464
+total rows: 84 
+not null rows: 18
+precision: 0.3333333333333333
 recall: 1.0
-fbeta: 0.5555555555555556
+fbeta: 0.5
 
 the metrics for the slice education_ HS-grad are:
-total rows: 2085 
-not null rows: 390
-precision: 0.1702127659574468
-recall: 0.08791208791208792
-fbeta: 0.11594202898550725
+total rows: 2120 
+not null rows: 403
+precision: 0.23809523809523808
+recall: 0.1485148514851485
+fbeta: 0.18292682926829268
 
 the metrics for the slice education_ Masters are:
-total rows: 369 
-not null rows: 72
-precision: 0.2571428571428571
-recall: 0.391304347826087
-fbeta: 0.3103448275862069
+total rows: 318 
+not null rows: 60
+precision: 0.27586206896551724
+recall: 0.5714285714285714
+fbeta: 0.37209302325581395
 
 the metrics for the slice education_ Preschool are:
-total rows: 10 
-not null rows: 2
+total rows: 9 
+not null rows: 1
 precision: 1.0
 recall: 1.0
 fbeta: 1.0
 
 the metrics for the slice education_ Prof-school are:
-total rows: 116 
-not null rows: 22
-precision: 0.3
+total rows: 114 
+not null rows: 24
+precision: 0.29411764705882354
 recall: 1.0
-fbeta: 0.46153846153846156
+fbeta: 0.45454545454545453
 
 the metrics for the slice education_ Some-college are:
-total rows: 1485 
-not null rows: 296
-precision: 0.3023255813953488
-recall: 0.17333333333333334
-fbeta: 0.22033898305084745
+total rows: 1475 
+not null rows: 290
+precision: 0.20454545454545456
+recall: 0.15254237288135594
+fbeta: 0.17475728155339806
 

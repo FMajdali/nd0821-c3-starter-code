@@ -13,7 +13,7 @@ data_path = current_script_dir.parent / "data" / "census.csv"
 data = pd.read_csv(data_path)
 data.columns = [col.strip() for col in data.columns] 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train,test = train_test_split(data, test_size=0.20, random_state=42)
+train,test = train_test_split(data, test_size=0.20, random_state=42, stratify = data['salary'])
 
 cat_features = [
     "workclass",
@@ -38,6 +38,7 @@ X_test, y_test, encoder , _ = process_data(
 model = train_model(X_train, y_train)
 joblib.dump(model, current_script_dir.parent / "model" / "random_forest_model.joblib")
 joblib.dump(encoder, current_script_dir.parent / "model" / "encoder.joblib")
+joblib.dump(lb, current_script_dir.parent / "model" / "lb.joblib")
 
 slice_eval(
         data_cols = data.columns,
