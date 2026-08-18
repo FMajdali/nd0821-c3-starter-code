@@ -82,51 +82,17 @@ async def model_infer(item: Item):
         "sex",
         "native_country",
         ]
-    """
-    num_features = [
-        "age",
-        "fnlgt",
-        "education_num",
-        "capital_gain",
-        "capital_loss",
-        "hours_per_week",
-    ]
 
-    data = item.model_dump()
-    cat_lst = [data[col] for col in cat_features]
-    num_lst = [data[col] for col in num_features]
-    """
-    """
-    
+    arr,_,_,_ = process_data(
+                            pd.DataFrame([item.model_dump()]), 
+                            categorical_features=cat_features,
+                            label=None,
+                            training=False,
+                            encoder=encoder,
+                            lb=lb
+                            )
 
-    cat_lst = []
-    num_lst = []
-    for key,val in data.items():
-        if key in cat_features:
-            cat_lst.append(val)
-        else:
-            num_lst.append(val)
-    """
-
-    """
-    encoded_arr = encoder.transform([cat_lst])
-    print(f"encoded array {encoded_arr.shape}")
-    num_arr = np.array([num_lst])
-    print(f"num_arr array {num_arr.shape}")
-    input_arr = np.concatenate([encoded_arr, num_arr], axis=1)
-    print(input_arr.shape)
-    pred = model.predict(input_arr)
-    print(f"and pred is {lb.inverse_transform(pred)}")
-    """
-
-    arr,_,_,_ = process_data(pd.DataFrame([item.model_dump()]), 
-                                            categorical_features=cat_features, label=None, training=False, encoder=encoder, lb=lb)
-    #encoded_arr = encoder.transform([cat_lst])
-    #num_arr = np.array([num_lst])
-    #input_arr = np.concatenate([encoded_arr, num_arr], axis=1)
     pred = model.predict(arr)
-    print(arr.shape)
-    print(pred)
     return lb.inverse_transform(pred)[0]
 
 if __name__ == "__main__":

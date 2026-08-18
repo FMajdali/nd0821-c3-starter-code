@@ -1,6 +1,8 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 import pandas as pd
+import joblib
+from .data import process_data
 
 def train_model(X_train, y_train):
     """
@@ -62,12 +64,25 @@ def inference(model, X):
 
     return y_pred
 
+def save_model(model, path):
+    """ Run model inferences and return the predictions.
+
+    Inputs
+    ------
+    model : RandomForestClassifier
+        Trained machine learning model.
+    path : str
+        path of where the model should be saved
+    Returns
+    -------
+    None: saves the model at the input path
+    """
+    joblib.dump(model, path)
+
 def slice_eval(
-        data_cols,
         cat_features,
         label,
-        x,
-        y,
+        df,
         slice_feature,
         model,
         encoder,
@@ -76,21 +91,31 @@ def slice_eval(
     ):
     output_lst = []
     
-    num_features = [col for col in data_cols if col not in cat_features]
+    num_features = [col for col in df.columns if col not in cat_features]
     num_features = [col for col in num_features if col != label]
     
+    arr,y,_,_ = process_data(
+                            df, 
+                            categorical_features=cat_features,
+                            label=label,
+                            training=False,
+                            encoder=encoder,
+                            lb=lb
+                            )
+
     encoded_df = pd.DataFrame(
-        x[:,len(num_features):],
+        arr[:,len(num_features):],
         columns=encoder.get_feature_names_out(cat_features)
-    )
+        )
 
     num_df = pd.DataFrame(
-        x[:,:len(num_features)],
+        arr[:,:len(num_features)],
         columns = num_features
-    )
+        )
 
     df = pd.concat([num_df,encoded_df],axis = 1)
     df[label] = y
+
 
     feature_cols = [col for col in df.columns if col.split("_")[0] == slice_feature]
     output_lst = [f"slice metrics using test data for the feature '{slice_feature}':\n\n"]
@@ -99,21 +124,11 @@ def slice_eval(
         temp_df = df[df[col] == 1].reset_index(drop = True).copy()
         y = temp_df.pop(label)
         y_preds = model.predict(temp_df.values)
-
-        # number of total rows
+ 
         total = y.shape[0]
-        y_not_null = y[~y.isna()]
-        
-        # number of not null values
-        not_null_num = y_not_null.shape[0]
-
-        # remove null labels
-        y_preds = y_preds[~y.isna()]
-        y = y[~y.isna()]
-
         assert y_preds.shape[0] == y.shape[0]
-        precision, recall, fbeta = compute_model_metrics(lb.transform(y),y_preds)
-        output_lst.append(f"the metrics for the slice {col} are:\ntotal rows: {total} \nnot null rows: {not_null_num}\nprecision: {precision}\nrecall: {recall}\nfbeta: {fbeta}\n\n")
+        precision, recall, fbeta = compute_model_metrics(y,y_preds)
+        output_lst.append(f"the metrics for the slice {col} are:\ntotal rows: {total} \nprecision: {precision}\nrecall: {recall}\nfbeta: {fbeta}\n\n")
     
     with open("slice_output.txt", "w") as f:
         f.writelines(output_lst)
