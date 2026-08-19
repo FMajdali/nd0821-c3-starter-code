@@ -89,6 +89,41 @@ def slice_eval(
         lb,
         output_file_name = "slice_output.txt"
     ):
+
+    """
+    Evaluate model performance on data slices defined by a categorical feature.
+
+    This function preprocesses the input DataFrame using the provided encoder
+    and label binarizer, reconstructs a transformed DataFrame, and computes
+    precision, recall, and F-beta score for each one-hot-encoded category
+    belonging to the specified `slice_feature`. The evaluation results are
+    written to a text file.
+
+    Args:
+        cat_features (list[str]): List of categorical feature names used during
+            preprocessing.
+        label (str): Name of the target label column in `df`.
+        df (pd.DataFrame): Input DataFrame containing features and label.
+        slice_feature (str): Name of the categorical feature for which slice-based
+            evaluation should be performed.
+        model: Trained model object with a `predict` method.
+        encoder: Fitted categorical feature encoder used in `process_data`.
+        lb: Fitted label binarizer used in `process_data`.
+        output_file_name (str, optional): Name of the file where slice metrics
+            will be written. Defaults to `"slice_output.txt"`.
+
+    Returns:
+        None
+
+    Side Effects:
+        Writes slice evaluation metrics to the specified output text file.
+
+    Notes:
+        - The function assumes `process_data` returns transformed features and labels
+          in a format consistent with the provided encoder and label binarizer.
+        - Slice metrics are computed only for categories that appear as one-hot
+          encoded columns matching the given `slice_feature`.
+    """
     output_lst = []
     
     num_features = [col for col in df.columns if col not in cat_features]
@@ -130,5 +165,5 @@ def slice_eval(
         precision, recall, fbeta = compute_model_metrics(y,y_preds)
         output_lst.append(f"the metrics for the slice {col} are:\ntotal rows: {total} \nprecision: {precision}\nrecall: {recall}\nfbeta: {fbeta}\n\n")
     
-    with open("slice_output.txt", "w") as f:
+    with open(output_file_name, "w") as f:
         f.writelines(output_lst)
