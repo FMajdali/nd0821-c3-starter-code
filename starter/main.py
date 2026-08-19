@@ -8,15 +8,12 @@ import joblib
 import numpy as np
 import pandas as pd
 
-current_script_dir = Path.cwd()
-model_path = current_script_dir / "model" / "random_forest_model.joblib"
-model = joblib.load(model_path)
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_DIR = BASE_DIR / "model"
 
-encoder_path = current_script_dir / "model" / "encoder.joblib"
-encoder = joblib.load(encoder_path)
-
-lb_path = current_script_dir / "model" / "lb.joblib"
-lb = joblib.load(lb_path)
+model = joblib.load(MODEL_DIR / "random_forest_model.joblib")
+encoder = joblib.load(MODEL_DIR / "encoder.joblib")
+lb = joblib.load(MODEL_DIR / "lb.joblib")
 
 class Item(BaseModel):
     #name: str
