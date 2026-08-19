@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_DIR = BASE_DIR / "model"
+MODEL_DIR = BASE_DIR / "starter" / "model"
 
 model = joblib.load(MODEL_DIR / "random_forest_model.joblib")
 encoder = joblib.load(MODEL_DIR / "encoder.joblib")
