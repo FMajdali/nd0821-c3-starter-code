@@ -6,7 +6,7 @@ from pathlib import Path
 from ml.data import process_data
 from ml.model import *
 # Add code to load in the data.
-current_script_dir = Path.cwd()
+current_script_dir = Path(__file__).resolve().parent
 data_path = current_script_dir.parent / "data" / "census.csv"
 
 data = pd.read_csv(data_path)

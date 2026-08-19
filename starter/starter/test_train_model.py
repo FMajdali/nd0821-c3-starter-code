@@ -5,8 +5,10 @@ import joblib
 from pathlib import Path
 import numpy as np
 
-current_script_dir = Path.cwd()
-model_path = current_script_dir.parent / "model" / "random_forest_model.joblib"
+BASE_DIR = Path(__file__).resolve().parent.parent
+MODEL_DIR = BASE_DIR / "model"
+
+model_path = MODEL_DIR / "random_forest_model.joblib"
 model = joblib.load(model_path)
 
 
