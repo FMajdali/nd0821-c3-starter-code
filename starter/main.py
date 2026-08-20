@@ -1,7 +1,7 @@
 # Put the code for your API here.
 from fastapi import FastAPI
 from pydantic import BaseModel
-from starter.ml.data import process_data
+from starter.starter.ml.data import process_data
 from fastapi.testclient import TestClient
 from pathlib import Path
 import joblib
